@@ -1,0 +1,140 @@
+{% extends 'layout.html' %}
+{% block title %} Average Calculator {% endblock %}
+{% block content %}
+<html>
+   <head>
+       <style>
+         body {
+         background-image: url('https://i.imgur.com/I4tSQXu.jpg');
+         }
+        table { color: white; width: 0 auto; margin: 0 auto;}
+        tr {font-size: 15px;width: 0 auto; margin: 0 auto; }
+        td{width: 0 auto; margin: 0 auto;font-size: 15px;}
+        label{color:white;}
+        input{color:black;}
+        p{
+            font-weight: bold;
+        }
+        
+             </style>
+ <form action="/math" method="POST">
+ <div class="form-group">
+     <center>
+            <p>Please enter marks and their weighting below:</p>
+     </center>
+
+ <br>
+<center>
+<table>
+    <tr>
+        <td>
+                <label>Mark 1 :</label>
+                <input type="number" value='0' name="ui1">
+                <br>
+                <label>Mark 2 :</label>
+                <input type="number" value='0' name="ui2">
+                <br>
+                <label>Mark 3 :</label>
+                <input type="number" value='0' name="ui3">
+                <br>
+                <label>Mark 4 :</label>
+                <input type="number" value='0' name="ui4">
+                <br>
+                <label>Mark 5 :</label>
+                <input type="number" value='0' name="ui5">
+                <br>
+                <label>Mark 6 :</label>
+                <input type="number" value='0' name="ui6">
+                <br>
+                <label>Mark 7 :</label>
+                <input type="number" value='0' name="ui7">
+                <br>
+                <label>Mark 8 :</label>
+                <input type="number" value='0' name="ui8">
+                <br>
+                <label>Mark 9  :</label>
+                <input type="number" value='0' name="ui9">
+                <br>
+                <label>Mark 10:</label>
+                <input type="number" value='0' name="ui10">
+                <br>
+        </td>
+        <td>
+                <label>Weight 1 :</label>
+                <input type="number" value='0' name="w1">
+                <br>
+                <label>Weight 2 :</label>
+                <input type="number" value='0' name="w2">
+                <br>
+                <label>Weight 3 :</label>
+                <input type="number" value='0' name="w3">
+                <br>
+                <label>Weight 4 :</label>
+                <input type="number" value='0' name="w4">
+                <br>
+                <label>Weight 5 :</label>
+                <input type="number" value='0' name="w5">
+                <br>
+                <label>Weight 6 :</label>
+                <input type="number" value='0' name="w6">
+                <br>
+                <label>Weight 7 :</label>
+                <input type="number" value='0' name="w7">
+                <br>
+                <label>Weight 8 :</label>
+                <input type="number" value='0' name="w8">
+                <br>
+                <label>Weight 9 :</label>
+                <input type="number" value='0' name="w9">
+                <br>
+                <label>Weight 10:</label>
+                <input type="number" value='0' name="w10">
+        </td>
+    </tr>
+</table>
+
+
+
+<br>
+<br>
+<br>
+</center>
+<center>
+    <p>Want to know the mark you need on your exam?</p>
+</center>
+
+<table>
+    <tr>
+        <td>
+            
+            <label>Current Mark :　　　　</label>
+            <input type="text" value='0' name="current">
+            <br>
+            <label>Wanted Final Mark : 　</label>
+            <input type="text" value='0' name="final">
+            <br>
+            <label>Weight :　　　　　　　</label>
+            <input type="text" value='0' name="weight">
+            
+
+        </td>
+    </tr>
+
+
+</table>
+
+
+</form>
+<br>
+<center>
+<button class="btn btn-primary">ENTER</button>
+<br>
+<br>
+<p>Average Calculcated: {{session['avgnew']}}%</p>
+<p>Final Mark Needed: {{session['final_mark']}}%</p>  
+</center>
+
+
+ </div>
+ </html>
+{% endblock %}

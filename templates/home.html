@@ -1,0 +1,213 @@
+{% extends 'layout.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+   <head>
+         <link rel="icon" type = "image" href="favicon.ico" />
+      <style>
+         h2{color: white;}
+         h1{color: white;}
+         table { width: 90%; 
+         margin: 0px auto; 
+         padding: 100px;
+         border-radius: 5px;
+         color: white;}
+         td { width: 800px; padding: 10px; color: white;}
+         tr { font-size: 20px;color: white;}
+         figcaption {text-align: center; font-size: 15px;}
+         html {
+         box-sizing: border-box;
+         }
+         p{color: white;}
+         img {
+            display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+         }
+         .bold{
+         font-weight: bold;
+         text-align:center;
+         }
+         *,
+         *::before,
+         *::after {
+         box-sizing: inherit;
+         margin: 0;
+         padding: 0;
+         }
+         body {
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+         background-color: white;
+         }
+         .app {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 600px;
+         min-height: 300px;
+         background-color: white;
+         border-radius: 5px;
+         }
+         .quotes {
+         padding: 20px 50px;
+         }
+         .quote-text {
+         padding-bottom: 20px;
+         font-size: 25px;
+         }
+         .controls {
+         position: absolute;
+         bottom: 0;
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+         padding: 20px 50px;
+         }
+         .button {
+         display: block;
+         color: white;
+         border-radius: 4px;
+         border: none;
+         padding: 10px 20px;
+         cursor: pointer;
+         }
+         .tweet {
+         background-color: #1da1f2;
+         text-decoration: none;
+         }
+         .new-quote {
+         background-color: #4A2B0F;
+         }
+         @media screen and (max-width: 600px) {
+         .app {
+         width: 100%;
+         }
+         .quote-text {
+         font-size: 18px;
+         }
+         }         
+         body {
+         background-image: url('https://i.imgur.com/I4tSQXu.jpg');
+         }
+      </style>
+      
+   </head>
+   <body>
+      <script type="text/javascript">
+         var quotes = [
+         "If you want to achieve greatness stop asking for permission. --Anonymous",
+         "Things work out best for those who make the best of how things work out.--John Wooden",
+         "To live a creative life, we must lose our fear of being wrong. --Anonymous",
+         "If you are not willing to risk the usual you will have to settle for the ordinary. --Jim Rohn",
+         "Trust because you are willing to accept the risk, not because it's safe or certain. --Anonymous",
+         "Take up one idea. Make that one idea your life--think of it, dream of it, live on that idea. Let the brain, muscles, nerves, every part of your body, be full of that idea, and just leave every other idea alone. This is the way to success. --Swami Vivekananda",
+         "All our dreams can come true if we have the courage to pursue them. --Walt Disney",
+         "A goal is not always meant to be reached; it often serves simply as something to aim at. -- Bruce Lee",
+         "Be patient with yourself. Self-growth is tender; it’s holy ground. There’s no greater investment. -Stephen Covey",
+         "I’d rather regret the things I’ve done than regret the things I haven’t done. -Lucille Ball",
+         "Move out of your comfort zone. You can only grow if you are willing to feel awkward and uncomfortable when you try something new. -Brian Tracy",
+         "Perseverance is failing 19 times and succeeding the 20th -Julie Andrews",
+         "Action is the foundational key to all success. -Pablo Picasso",
+         "The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack of will. -Vince Lombardi",
+         "The man who has confidence in himself gains the confidence of others -Anonymous",
+         "Stop being afraid of what could go wrong and think of what could go right. -Anonymous",
+         "You should never regret anything in life. If it’s good, it’s wonderful. If it’s bad, it is experience. -Anonymous",
+         "If you have the power to make someone happy, do it. The world needs more of that. -Anonymous",
+         "Discipline is doing what needs to be done, even if you don’t want to. -Anonymous",
+         "Work while they sleep. Learn while they party. Save while they spend. Live like they dream. -Anonymous",
+         "Work while they sleep. Learn while they party. Save while they spend. Live like they dream. -Anonymous",
+         "The Pessimist Sees Difficulty In Every Opportunity. The Optimist Sees Opportunity In Every Difficulty. – Winston Churchill",
+         "Don’t Let Yesterday Take Up Too Much Of Today. – Will Rogers",
+         "People Who Are Crazy Enough To Think They Can Change The World, Are The Ones Who Do. – Rob Siltanen",
+         "Entrepreneurs Are Great At Dealing With Uncertainty And Also Very Good At Minimizing Risk. That’s The Classic Entrepreneur. – Mohnish Pabrai",
+         "We May Encounter Many Defeats But We Must Not Be Defeated. – Maya Angelou",
+         "Whether You Think You Can Or Think You Can’t, You’re Right. – Henry Ford",
+         "The Man Who Has Confidence In Himself Gains The Confidence Of Others. – Hasidic Proverb",
+         "Creativity Is Intelligence Having Fun. – Albert Einstein",
+         "What You Lack In Talent Can Be Made Up With Desire, Hustle And Giving 110% All The Time. – Don Zimmer",
+         "You Are Never Too Old To Set Another Goal Or To Dream A New Dream. – C.S. Lewis",
+         "I Think Goals Should Never Be Easy, They Should Force You To Work, Even If They Are Uncomfortable At The Time. – Michael Phelps",
+         "Today’s Accomplishments Were Yesterday’s Impossibilities. – Robert H. Schuller",
+         "The Only Way To Do Great Work Is To Love What You Do. If You Haven’t Found It Yet, Keep Looking. Don’t Settle. – Steve Jobs",
+         "You Don’t Have To Be Great To Start, But You Have To Start To Be Great. – Zig Ziglar",
+         "There Are No Limits To What You Can Accomplish, Except The Limits You Place On Your Own Thinking. – Brian Tracy",
+         "Integrity Is The Most Valuable And Respected Quality Of Leadership. Always Keep Your Word. - Brian Tracy",
+         "Leadership Is The Ability To Get Extraordinary Achievement From Ordinary People. - Brian Tracy",
+         "The True Test Of Leadership Is How Well You Function In A Crisis. - Brian Tracy",
+         ]
+         
+         function newQuote() {
+         var randomNumber = Math.floor(Math.random() * (quotes.length));
+         document.getElementById('quoteDisplay').innerHTML = quotes[randomNumber];
+         }
+      </script>
+      <center>
+         <p id="quoteDisplay"></p>
+         <button class="btn btn-primary" onclick="newQuote()">Click for a Motivational Quote</button>
+      </center>
+      <table>
+         <tr>
+            <td class="bold">
+               <h2>Our Goal</h2>
+            </td>
+            <td class="bold">
+               <h2>About Us</h2>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>Help students set their goals and have a well-planned future, by focusing on their current studies and being able to match their interest to the most attractive programs available.</p>
+            </td>
+            <td>
+               <p>As a group of successful, young entrepreneurs, 
+                  we hope for students to achieve all of their goals. We believe that in order for one to achieve their goals, there must be a place for them to plan and prepare for those goals. Our advanced, innovative student success center provides the complete package 
+                  for any student: it includes their imported marks, a post-secondary guide, and many more features that will lead them to success. As competition for well-reputed university programs increases today, we look to push the students forward. 
+               </p>
+            </td>
+         </tr>
+      </table>
+      <center>
+         <div id="team">
+            <h2>Meet the Team</h2>
+         </div>
+         <table>
+            <tr>
+               <td>
+                  <figure>
+                     <img src="https://i.imgur.com/Fwi9G2Z.png" alt="omri" style="width:100px;height:100px;">
+                     <figcaption>Omri Daniel<br/>CEO</figcaption>
+                  </figure>
+               </td>
+               <td>
+                  <figure>
+                     <img src="https://i.imgur.com/8HT8rut.png" alt="haber" style="width:100px;height:125px;">
+                     <figcaption>Daniel Haber<br/>Project Manager</figcaption>
+                  </figure>
+               </td>
+               <td>
+                  <figure>
+                     <img src="https://i.imgur.com/Gk7pc8A.png" alt="dylan" style="width:100px;height:150px;">
+                     <figcaption>Dylan Weltman<br/>Programmer</figcaption>
+                  </figure>
+               </td>
+               <td>
+                  <figure>
+                     <img src="https://imgur.com/X4Y9S6n.png"  alt='jory' style="width:100px;height:125px;">
+                     <figcaption>Jory Clements<br/>Programmer</figcaption>
+                     <br>
+                  </figure>
+               </td>
+            </tr>
+         </table>
+      </center>
+      <center>
+   </div>
+   </form>
+   </div>
+   </div>
+   </body>
+</html>
+{% endblock %}

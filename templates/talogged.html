@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+{% block title %} TeachAssist Marks {% endblock %}
+{% block content %}
+   <head>
+     <style>
+         body {
+         background-image: url('https://i.imgur.com/I4tSQXu.jpg');
+         }
+        p { font-size: 12pt !important; color:white;}
+        table { color: white; width: 900px; margin: 0 auto; border: 2px solid whitesmoke;}
+        td { color: white; width: 800px; padding: 10px; border: 2px solid whitesmoke;}
+        tr { color:white;font-size: 20px; 
+            border: 2px solid whitesmoke;}
+            .bold { text-align: center;
+                    font-weight: bold;}
+     </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td class = "bold">Course Code</td>
+        <td class = "bold">Course Name</td>
+        <td class = "bold">Mark</td>
+    </tr>
+    <tr>
+        <td>
+            <p>{{session["courseCode1"]}}</p>
+        </td>
+        <td>
+            <p>{{session["courseName1"]}}</p>
+        </td>
+        <td>
+            <p>{{session["courseMark1"]}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>{{session["courseCode2"]}}</p>
+        </td>
+        <td>
+            <p>{{session["courseName2"]}}</p>
+        </td>
+        <td>
+            <p>{{session["courseMark2"]}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>{{session["courseCode3"]}}</p>
+        </td>
+        <td>
+            <p>{{session["courseName3"]}}</p>
+        </td>
+        <td>
+            <p>{{session["courseMark3"]}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>{{session["courseCode4"]}}</p>
+        </td>
+        <td>
+            <p>{{session["courseName4"]}}</p>
+        </td>
+        <td>
+            <p>{{session["courseMark4"]}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>{{session["courseCode5"]}}</p>
+        </td>
+        <td>
+            <p>{{session["courseName5"]}}</p>
+        </td>
+        <td>
+            <p>{{session["courseMark5"]}}</p>
+        </td>
+    </tr>
+</table>
+    <br/>
+<center>
+    <p>Not logged in? </p>
+    <button onclick="window.location.href = '/talogin';">Click Here</button>
+</center>
+</body>
+{% endblock %}

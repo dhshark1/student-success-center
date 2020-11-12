@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block title %} Question 1 {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+   <body>
+      <style>
+         body {
+            background-image: url('https://i.imgur.com/I4tSQXu.jpg');
+         }
+         p {
+         padding-left: 20px;
+         color:white;
+         }
+         form {    padding-left: 20px;
+            color:white;}
+         h1{color:white;}
+      </style>
+      <h1>Question 1 of 26</h1>
+      <p>I enjoy helping people.</p>
+<form action="" method="POST">
+  <input type="radio" id= 'yesAnswer'name="answer" value="yes"> Yes<br>
+    <p></p>
+  <input type="radio" name="answer" value="no"> No<br>
+    <p></p>
+ <button class="btn btn-primary">Next Question</button>
+</form>
+</body>
+</html>
+{% endblock %}
